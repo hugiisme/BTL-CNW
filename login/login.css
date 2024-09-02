@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-size: 62.5%; */
+    font-family: "Ubuntu", sans-serif;
+}
+
+.login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    border: 1px solid black;
+    padding: 20px 10px 5px;
+    border-radius: 20px;
+    background-color: #f4f0f0;
+}
+
+.login-form h1{
+    text-align: center;
+    margin: 10px 0px 20px;
+}
+
+.input-container {
+    position: relative;
+    margin: 20px;
+}
+
+.input-container label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+    background-color: white;
+    padding: 0px 5px;
+    top: 0px;
+    font-size: 0.95em;
+    background: linear-gradient(#f4f0f0 50%, white 50%);
+}
+
+.input-container input {
+    width: 300px;
+    height: 50px;
+    font-size: 1.2em;
+    padding: 0px 35px 0px 20px;
+    border-radius: 40px;
+}
+
+.input-container .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    pointer-events: none;
+    font-size: 1.1em;
+}
+
+/* .suggestion-box {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin: -10px 20px;
+} */
+
+.submit-btn {
+    width: 300px;
+    height: 50px;
+    font-size: 1.2em;
+    background-color: white;
+    border-radius: 40px;
+    transition: 0.3s;
+    font-weight: bold;
+    margin: 0px 20px;
+}
+
+.submit-btn:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.register-suggestion {
+    text-align: center;
+    margin: 10px 0px;
+}
