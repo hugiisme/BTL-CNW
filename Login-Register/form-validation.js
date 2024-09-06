@@ -1,6 +1,6 @@
 // hàm check input
 function validateFormInput(e, formType){
-    e.preventDefault(); // ngăn việc gửi dữ liệu ngay khi ấn submit mà đợi check validate của input
+    var isValid = true;
 
     // lấy input, bỏ khoảng trắng, formType để phân biệt file login và register
     var username = document.getElementById(formType + "-username").value.trim();
@@ -21,34 +21,34 @@ function validateFormInput(e, formType){
         passwordConfirmationErrorMessage.textContent = '';
     }
 
-    // flags
-    var usernameIsValid = true;
-    var passwordIsValid = true;
-    var passwordConfirmationIsValid = true;
-
     // validate check
     if (username === '') {
         usernameErrorMessage.textContent = 'Tên đăng nhập là bắt buộc';
-        usernameIsValid = false;
+        isValid = false;
     }
 
     if (password === '') {
         passwordErrorMessage.textContent = 'Mật khẩu là bắt buộc';
-        passwordIsValid = false;
+        isValid = false;
     }
     
     if (formType === 'register' && passwordConfirmation === '') {
         passwordConfirmationErrorMessage.textContent = 'Xác nhận mật khẩu là bắt buộc';
-        passwordConfirmationIsValid = false;
+        isValid = false;
     } else if (formType === 'register' && passwordConfirmation !== password) {
         passwordConfirmationErrorMessage.textContent = 'Mật khẩu không trùng khớp';
-        passwordConfirmationIsValid = false;
+        isValid = false;
+    }
+
+    if (!isValid()){
+        e.preventDefault(); // ngăn việc gửi dữ liệu ngay khi ấn submit mà đợi check validate của input, ncl ko valid thì ko submit
     }
 
     // debug
-    if (usernameIsValid && passwordIsValid && passwordConfirmationIsValid) {
-        alert(formType === 'register' ? "Đăng ký thành công" : "Đăng nhập thành công");
-    }
+    // if (usernameIsValid && passwordIsValid && passwordConfirmationIsValid) {
+    //     alert(formType === 'register' ? "Đăng ký thành công" : "Đăng nhập thành công");
+    //     this.submit(); // giải pháp tạm thời vì không biết sử dụng ajax
+    // }
 }
 
 // hiển thị mật khẩu khi ấn vào icon lock
