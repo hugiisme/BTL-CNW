@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="form-validation.js" defer></script>
+</head>
+<body>
+    <div class="register-container">
+        <form action="register.php" method="post" class="register-form">
+            <h1>Đăng Ký</h1>
+
+            <div class="input-container">
+                <input type="text" name="username" id="register-username" placeholder="">
+                <label for="username">Tên đăng nhập</label>
+                <i class='bx bx-user icon' ></i>
+                <div class="error-message" id="username-error-message"></div>
+            </div>
+            
+            <div class="input-container">
+                <input type="password" name="password" id="register-password" placeholder="">
+                <label for="password">Mật khẩu</label>
+                <i class='bx bx-lock-alt icon' onclick="togglePassword('register-password')" ></i>
+                <div class="error-message" id="password-error-message"></div>
+            </div>
+
+            <div class="input-container">
+                <input type="password" name="password-confirmation" id="register-password-confirmation" placeholder="">
+                <label for="password-confirmation">Xác nhận lại mật khẩu</label>
+                <i class='bx bx-lock-alt icon' onclick="togglePassword('register-password-confirmation')"></i>
+                <div class="error-message" id="password-confirmation-error-message"></div>
+            </div>
+
+            <input type="submit" name="register" class="submit-btn" value="Đăng ký">
+            
+            <div class="login-suggestion">
+                Đã có tài khoản? <a href="login.html">Đăng nhập.</a>
+            </div>
+        </form>
+    </div>
+    
+</body>
+<script>
+    document.querySelector(".register-form").addEventListener("submit", function(e) {
+        validateFormInput(e, 'register');
+    });
+</script>
+</html>
