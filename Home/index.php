@@ -4,4 +4,5 @@
         header("Location: ../Login-Register/login.php");
     }
     echo "Hello " . $_SESSION["username"];
+    include("index.html");
 ?>
