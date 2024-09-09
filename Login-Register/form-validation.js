@@ -49,6 +49,22 @@ function validateFormInput(e, formType){
     //     alert(formType === 'register' ? "Đăng ký thành công" : "Đăng nhập thành công");
     //     this.submit(); // giải pháp tạm thời vì không biết sử dụng ajax
     // }
+
+    var message;
+    if (formType === "register"){
+        fetch("register-validate.php")
+            .then (response => response.json())
+            .then (data => {
+                message = data.message;
+            })
+    } else {
+        fetch("login-validate.php")
+            .then (response => response.json())
+            .then (data => {
+                message = data.message;
+            })
+    }
+    alert(message);
 }
 
 // hiển thị mật khẩu khi ấn vào icon lock
