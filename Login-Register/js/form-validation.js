@@ -1,5 +1,6 @@
 // hàm check input
 function validateFormInput(e, formType){
+    e.preventDefault();
     var isValid = true;
 
     // lấy input, bỏ khoảng trắng, formType để phân biệt file login và register
@@ -40,15 +41,37 @@ function validateFormInput(e, formType){
         isValid = false;
     }
 
-    if (!isValid()){
+    if (!isValid){
         e.preventDefault(); // ngăn việc gửi dữ liệu ngay khi ấn submit mà đợi check validate của input, ncl ko valid thì ko submit
-    }
+    } else {
+        // GPT code, ko hiểu hết TT-TT
+        var url = formType === 'register' ? "register-validate.php" : "login-validate.php";
+        var formData = new URLSearchParams({
+            username: username,
+            password: password,
+            password_confirmation: passwordConfirmation
+        });
 
-    // debug
-    // if (usernameIsValid && passwordIsValid && passwordConfirmationIsValid) {
-    //     alert(formType === 'register' ? "Đăng ký thành công" : "Đăng nhập thành công");
-    //     this.submit(); // giải pháp tạm thời vì không biết sử dụng ajax
-    // }
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData.toString()
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.status === "success") {
+                window.location.href = data.redirect; // Chuyển hướng sau khi đăng nhập thành công
+                // không thể sử dụng header để chuyển hướng trực tiếp trong php vì đang giữ header('Content-Type: application/json');
+                // sử dụng header("Location: ...") sẽ gửi 1 trang html vào json để alert
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }        
 }
 
 // hiển thị mật khẩu khi ấn vào icon lock

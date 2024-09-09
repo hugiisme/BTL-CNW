@@ -1,7 +1,7 @@
-<?php 
-    session_start();
+<?php
+    header('Content-Type: application/json');
     include("database.php");
-    include("login.html");
+    session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $username = $_POST["username"];
@@ -16,25 +16,22 @@
 
                 if (password_verify($password, $row["password"])){
                     $_SESSION['username'] = $username;
-                    header("Location: ../Home/index.php");
+                    echo json_encode(["message" => "Đăng nhập thành công", "status" => "success", "redirect" => "../../Home/index.php"]);
                     exit();
                     
                 } else {
-                    echo "Sai mật khẩu"; 
+                    echo json_encode(["message" => "Sai mật khẩu", "status" => "error"]);
                 }
 
             } else {
-                echo 'Sai tên đăng nhập'; 
+                echo json_encode(["message" => "Sai tên đăng nhập", "status" => "error"]);
             }
 
         } else {
-            echo "Chưa nhập mật khẩu hoặc tên đăng nhập";
+            echo json_encode(["message" => "Chưa nhập mật khẩu hoặc tên đăng nhập", "status" => "error"]); // thừa, js đã xử lý rồi
         }
-
-        mysqli_close($conn);
     } 
 
+    mysqli_close($conn);
 
-    // TODO: tạo thông báo sai mật khẩu hoặc tên đăng nhập
-    //       tạo thông báo đăng nhập thành công
 ?>
