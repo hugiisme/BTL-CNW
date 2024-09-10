@@ -8,6 +8,10 @@
     font-family: "Ubuntu", sans-serif;
 }
 
+body {
+    background-color: #FFF4EA;
+}
+
 .login-container,
 .register-container {
     width: 100%;
@@ -71,8 +75,14 @@
 }
 
 .bx-lock-alt,
-.bx-lock-open-alt{
+.bxs-lock-open-alt{
     cursor: pointer;
+    transition: font-size 0.3s ease;
+}
+
+.bx-lock-alt:hover,
+.bxs-lock-open-alt:hover{
+    font-size: 20px;
 }
 
 .error-message {
