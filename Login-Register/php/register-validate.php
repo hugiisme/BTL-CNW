@@ -4,14 +4,15 @@
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
         $username = isset($_POST["username"]) ? trim($_POST["username"]) : null;
-        $password = isset($_POST["password"]) ? trim($_POST["password"]) : null;
+        $password = isset($_POST["password_confirmation"]) ? trim($_POST["password_confirmation"]) : null; // sử dụng mật khẩu đã được xác nhận thay vì mật khẩu nhập lần đầu
+        // name của input nên dùng snake_case vì $_POST không đọc được kebab-case
         $role = "student"; // default là student, sau khi tạo sẽ để admin đổi role
 
         $sameNameUsers = "SELECT * FROM users WHERE username = '$username'";
         $duplicatedUsernameCheck = mysqli_query($conn, $sameNameUsers);
         
         // validate
-        if ($username === null || $password === null){
+        if ($username === null || $password === null || $passwordConfirmation === null){
             echo json_encode(["message" => "Chưa nhập tên đăng nhập hoặc mật khẩu"]); // thừa, js đã xử lý rồi
             exit();
         }
