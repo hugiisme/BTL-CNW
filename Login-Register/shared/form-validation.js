@@ -45,19 +45,19 @@ function validateFormInput(e, formType){
         e.preventDefault(); // ngăn việc gửi dữ liệu ngay khi ấn submit mà đợi check validate của input, ncl ko valid thì ko submit
     } else {
         // GPT code, ko hiểu hết TT-TT
-        var url = formType === 'register' ? "register-validate.php" : "login-validate.php";
-        var formData = new URLSearchParams({
-            username: username,
-            password: password,
-            password_confirmation: passwordConfirmation
-        });
+        var url = formType === 'register' ? "../register/register_validate.php" : "../login/login_validate.php";
+        var formData = new FormData();
+        formData.append('username', username);
+        formData.append('password', password);
+
+        // Nếu là trang đăng ký thì mới cần gửi password confirmation
+        if (formType === 'register') {
+            formData.append('password_confirmation', passwordConfirmation);
+        }
 
         fetch(url, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: formData.toString()
+            body: formData
         })
         .then(response => response.json())
         .then(data => {
@@ -65,7 +65,7 @@ function validateFormInput(e, formType){
             if (data.status === "success") {
                 window.location.href = data.redirect; // Chuyển hướng sau khi đăng nhập thành công
                 // không thể sử dụng header để chuyển hướng trực tiếp trong php vì đang giữ header('Content-Type: application/json');
-                // sử dụng header("Location: ...") sẽ gửi 1 trang html vào json để alert
+                // sử dụng header("Location: ...") sẽ gửi 1 trang html vào json để alert => lỗi
             }
         })
         .catch(error => {

@@ -1,8 +1,5 @@
 <?php 
-    session_start();
-    if (!isset($_SESSION["username"])){
-        header("Location: ../Login-Register/php/login.php");
-    }
-    echo "Hello " . $_SESSION["username"];
+    include("../shared/session_check.php");
+    include("../shared/header.html");
     include("index.html");
 ?>

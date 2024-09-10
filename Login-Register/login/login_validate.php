@@ -1,6 +1,6 @@
 <?php
     header('Content-Type: application/json');
-    include("database.php");
+    include("../shared/database.php");
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
