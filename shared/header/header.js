@@ -22,7 +22,7 @@ function highlightCurrentPage() {
     }
 }
 
-highlightCurrentPage()
+highlightCurrentPage();
 
 document.getElementById("logout").addEventListener("click", () => {
     window.location.href = "../shared/logout.php";
