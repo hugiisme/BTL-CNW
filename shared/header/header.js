@@ -1,21 +1,28 @@
-var navLinks = document.querySelectorAll('.menu > li > a');
+var navLinks = document.querySelectorAll('.menu > li > a:not([href="#"])'); // chỉ xét thẻ a mà có link, né nút tài khoản để xử lý riêng
 
-function handleNavLinkClick(event) {
-    event.preventDefault();
-    
-    // tìm item đang active
-    var activeElement = document.querySelector('.active');
-    
-    // nếu item đó tồn tại, loại bỏ class active ra khỏi item
-    if (activeElement) {
-        activeElement.classList.remove('active');
+function highlightCurrentPage() {
+    var currentPath = window.location.pathname; // lấy path đầy đủ của file html đang mở 
+
+    navLinks.forEach(link => {
+        // reset active khỏi tất cả các thẻ
+        link.classList.remove('active');
+
+        // lấy link của từng thẻ <a> qua thuộc tính href
+        var linkPath = link.getAttribute('href');
+        
+        // check nếu currentPath == linkPath (bỏ ../)
+        if (currentPath.includes(linkPath.replace('../', ''))) {
+            link.classList.add('active'); // nếu trùng thì thêm .active
+        } 
+    });
+
+    // vì thông tin tài khoản là trong account.php nằm trong submenu chứ không nằm trong navList nên xử lý riêng
+    if (currentPath.includes('account.php')) {
+        document.querySelector('.menu > li > a[href="#"]').classList.add("active");
     }
-    
-    // thêm class active vào item vừa click
-    event.target.classList.add('active');
 }
-navLinks.forEach(link => link.addEventListener('click', handleNavLinkClick));
 
+highlightCurrentPage()
 
 document.getElementById("logout").addEventListener("click", () => {
     window.location.href = "../shared/logout.php";

@@ -1,6 +1,6 @@
 <?php 
     header('Content-Type: application/json');
-    include("../shared/database.php");
+    include("../../shared/database.php");
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
         $username = isset($_POST["username"]) ? trim($_POST["username"]) : null;

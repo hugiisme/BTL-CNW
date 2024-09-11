@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="../shared/header/header.css"> 
     <!-- <link rel="stylesheet" href="header.css"> -->
     <!-- Vì header.html được include bởi các file php nên link file css phải xét theo vị trí của file php đã include nó -->
-    
-    <style></style>
     <title>Header</title>
 </head>
 <body>
@@ -15,20 +13,20 @@
         <h1 class="title">Đăng ký học bạ</h1>
         <nav class="navigation">
             <ul class = "menu">
-                <li><a href="" class="active">Trang chủ</a></li>
-                <li><a href="">Nộp hồ sơ</a></li>
-                <li><a href="">Xem hồ sơ</a></li>
-                <li><a href="">Thống kê hồ sơ</a></li>
+                <li><a href="../Home/index.php">Trang chủ</a></li>
+                <li><a href="../ApplicationSubmission/applicationSubmission.php">Nộp hồ sơ</a></li>
+                <li><a href="../ApplicationView/applicationView.php">Xem hồ sơ</a></li>
+                <li><a href="../ApplicationStatistics/applicationStatistics.php">Thống kê hồ sơ</a></li>
                 <li>
-                    <a href="">Tài khoản</a>
+                    <a href="#">Tài khoản</a>
                     <ul class="submenu">
-                        <li><a href="">Thông tin tài khoản</a></li>
-                        <li><a href="" id = "logout">Đăng xuất</a></li>
+                        <li><a href="../Account/account.php">Thông tin tài khoản</a></li>
+                        <li><a href="#" id = "logout">Đăng xuất</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
 </body>
-<script src="header.js"></script>
+<script src="../shared/header/header.js"></script>
 </html>

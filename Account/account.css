@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.account-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 500px;
+    height: fit-content;
+    padding: 20px;
+    margin: 20px 0;
+    margin-left: 70px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    padding: 0 20px;
+    height: 120px;
+    background-color: lightgray;
+}
+
+.settings-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.option a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 5px;
+    min-width: 120px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.option a:hover {
+    background-color: white;
+    color: black;
+}
+
+.settings-popup {
+    margin-right: 70px;
+}
+
+.change-password-container,
+.delete-account-container {
+    display: none;
+    width: 800px;
+    
+}
+
+.settings-popup .container {
+    width: 800px;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel-button {
+    background-color: tomato;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: medium;
+}
+
+.cancel-button:hover {
+    background-color: red;
+}
+
+.confirm-button {
+    background-color: #72d36b;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: medium;
+}
+
+.confirm-button:hover {
+    background-color: seagreen;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    margin: 20px 0;
+}

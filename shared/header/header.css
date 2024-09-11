@@ -43,7 +43,8 @@ ul {
     text-decoration: none;
 }
 
-.menu > li > a.active {
+.menu > li > a.active,
+.submenu > li > a.active {
     background-color: #6c6c6c;
     border: 1px solid white;
 }
@@ -52,7 +53,6 @@ ul {
     background-color: #585757;
 }
 
-.menu > li > a.active + .submenu,
 .menu > li:hover > .submenu {
     display: block;
     max-height: 500px;
@@ -60,7 +60,7 @@ ul {
 
 .submenu {
     position: absolute;
-    top: 100%;
+    top: 148%; 
     left: 0;
     width: 100%;
     border-radius: 5px;

@@ -4,7 +4,6 @@
         private $admissionBlocks;       // khối xét tuyển
         private $submissionOpenDate;    // ngày bắt đầu nhận đơn
         private $submissionDeadline;    // ngày kết thúc nhận đơn
-        private $available;             // trạng thái có thể nộp hồ sơ hay không
 
         // name
         public function getName(){
@@ -38,12 +37,12 @@
             $this->submissionDeadline = $submissionDeadline;
         }
 
-        // is available
-        public function getAvailable(){
-            return $this->available;
-        }
-        public function setAvailable($available){
-            $this->available = $available;
+        public function __construct($name, $admissionBlocks, $submissionOpenDate, $submissionDeadline)
+        {
+            $this->setName($name);
+            $this->setAdmissionBlocks($admissionBlocks);
+            $this->setSubmissionOpenDate($submissionOpenDate);
+            $this->setSubmissionDeadline($submissionDeadline);
         }
     }
 ?>
