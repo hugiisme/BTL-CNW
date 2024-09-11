@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../shared/header/header.css"> 
+    <!-- <link rel="stylesheet" href="../shared/header/header.css">  -->
+    <link rel="stylesheet" href="header.css">
     <!-- Vì header.html được include bởi các file php nên link file css phải xét theo vị trí của file php đã include nó -->
+    
     <style></style>
     <title>Header</title>
 </head>
 <body>
     <header class="header">
+        <h1 class="title">Đăng ký học bạ</h1>
         <nav class="navigation">
             <ul class = "menu">
-                <li><a href="">Trang chủ</a></li>
+                <li><a href="" class="active">Trang chủ</a></li>
                 <li><a href="">Nộp hồ sơ</a></li>
                 <li><a href="">Xem hồ sơ</a></li>
                 <li><a href="">Thống kê hồ sơ</a></li>
@@ -27,10 +30,5 @@
         </nav>
     </header>
 </body>
-<script>
-    document.getElementById("logout").addEventListener("click", () => {
-        window.location.href = "../shared/logout.php";
-        // vì header.html được include bởi file php nên đường dẫn tới logout phải xét theo vị trí của file php đã include nó
-    });
-</script>
+<script src="header.js"></script>
 </html>

@@ -22,7 +22,8 @@ Bạn có thể thực hiện một trong hai cách sau để sao chép repo v�
 
 ### 1. Mở phpMyAdmin
 
-1. Mở [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/) (Hoặc mở Xampp, khởi chạy MySQL và chọn admin). 
+1. Khởi chạy MySQL và APACHE trên XAMPP
+2. Mở [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/) (Hoặc mở XAMPP chọn admin tại dòng MySQL). 
 
 ### 2. Tạo Cơ Sở Dữ Liệu Mới
 
