@@ -73,6 +73,14 @@ function validateFormInput(e, formType){
         });
     }        
 }
+// thêm lệnh cho nút submit register
+document.querySelector(".register-form").addEventListener("submit", function(e) {
+    validateFormInput(e, 'register');
+});
+// thêm lệnh cho nút submit login
+document.querySelector(".login-form").addEventListener("submit", function(e) {
+    validateFormInput(e, 'login');
+});
 
 // hiển thị mật khẩu khi ấn vào icon lock
 function togglePassword(inputId){
