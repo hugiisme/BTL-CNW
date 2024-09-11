@@ -52,6 +52,7 @@ ul {
     background-color: #585757;
 }
 
+.menu > li > a.active + .submenu,
 .menu > li:hover > .submenu {
     display: block;
     max-height: 500px;
@@ -66,7 +67,7 @@ ul {
     overflow: hidden;
     background-color: #212121;
     max-height: 0;
-    transition: max-height 0.9s ease;
+    transition: max-height 0.5s ease;
 }
 
 .submenu > li {
