@@ -1,6 +1,7 @@
 // hàm check input
 function validateFormInput(e, formType){
     e.preventDefault();
+
     var isValid = true;
 
     // lấy input, bỏ khoảng trắng, formType để phân biệt file login và register
@@ -42,56 +43,50 @@ function validateFormInput(e, formType){
     }
 
     if (!isValid){
-        e.preventDefault(); // ngăn việc gửi dữ liệu ngay khi ấn submit mà đợi check validate của input, ncl ko valid thì ko submit
-    } else {
-        // GPT code, ko hiểu hết TT-TT
-        var url = formType === 'register' ? "../register/register_validate.php" : "../login/login_validate.php";
-        var formData = new FormData();
-        formData.append('username', username);
-        formData.append('password', password);
-
-        // Nếu là trang đăng ký thì mới cần gửi password confirmation
-        if (formType === 'register') {
-            formData.append('password_confirmation', passwordConfirmation);
-        }
-
-        fetch(url, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message);
-            if (data.status === "success") {
-                window.location.href = data.redirect; // Chuyển hướng sau khi đăng nhập thành công
-                // không thể sử dụng header để chuyển hướng trực tiếp trong php vì đang giữ header('Content-Type: application/json');
-                // sử dụng header("Location: ...") sẽ gửi 1 trang html vào json để alert => lỗi
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }        
-}
-// thêm lệnh cho nút submit register
-document.querySelector(".register-form").addEventListener("submit", function(e) {
-    validateFormInput(e, 'register');
-});
-// thêm lệnh cho nút submit login
-document.querySelector(".login-form").addEventListener("submit", function(e) {
-    validateFormInput(e, 'login');
-});
-
-// hiển thị mật khẩu khi ấn vào icon lock
-function togglePassword(inputId){
-    var passwordInput = document.getElementById(inputId);
-    var icon = passwordInput.parentElement.querySelector('i');
-    if (passwordInput.type === "password"){
-        passwordInput.type = "text"; // đổi type thành text để hiển thị được mật khẩu
-        icon.classList.replace("bx-lock-alt", "bxs-lock-open-alt"); // đổi icon thành khóa mở
-        
-    } else {
-        passwordInput.type = "password";
-        icon.classList.replace("bxs-lock-open-alt", "bx-lock-alt");
+        return;
     }
+
+    var url = formType === 'register' ? "../register/register_process.php" : "../login/login_process.php";
+    var formData = new FormData();
+    formData.append('username', username);
+    
+    // Nếu là trang đăng ký thì mới cần gửi password confirmation
+    if (formType === 'register') {
+        formData.append('password_confirmation', passwordConfirmation);
+    } else {
+        formData.append('password', password);
+    }
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.status === "success") {
+            window.location.href = "../../Home/index.php"; // Chuyển hướng sau khi đăng nhập thành công
+            // không thể sử dụng header để chuyển hướng trực tiếp trong php vì đang giữ header('Content-Type: application/json');
+            // sử dụng header("Location: ...") sẽ gửi 1 trang html vào json để alert => lỗi
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+          
 }
+
+// check địa chỉ hiện tại 
+if (window.location.href.includes("register")){
+    // thêm lệnh cho nút submit register
+    document.querySelector(".register-form").addEventListener("submit", function(e) {
+        validateFormInput(e, 'register');
+    });
+} else {
+    // thêm lệnh cho nút submit login
+    document.querySelector(".login-form").addEventListener("submit", function(e) {
+        validateFormInput(e, 'login');
+    });
+}
+
+

@@ -73,7 +73,8 @@
 }
 
 .settings-popup .container {
-    width: 800px;
+    position: relative;
+    width: 100%;
 }
 
 .choices {
@@ -107,9 +108,23 @@
     background-color: seagreen;
 }
 
+
 .input-container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     width: 350px;
-    margin: 20px 0;
+    margin: 20px 0px;
 }
+
+.icon {
+    position: absolute;
+    right: -25px;
+}
+
+.error {
+    color: red;
+    position: absolute;
+    right: 0px;
+}
+
