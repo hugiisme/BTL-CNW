@@ -1,5 +1,5 @@
 function accountInformationDisplay(){
-    fetch("account_information.php")
+    fetch("../shared/user_data.php")
     .then(response => response.json())
     .then(data => {
         document.getElementById("user-name").textContent += data.username;

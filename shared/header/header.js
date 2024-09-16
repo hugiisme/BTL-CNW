@@ -1,3 +1,13 @@
+fetch("../shared/user_data.php")
+    .then (response => response.json())
+    .then (data => {
+        if (data.role != "admin"){
+            document.getElementById("admin-only").style.display = "none";
+        } else {
+            document.getElementById("admin-only").style.display = "block";
+        }
+    })
+
 var navLinks = document.querySelectorAll('.menu > li > a:not([href="#"])'); // chỉ xét thẻ a mà có link, né nút tài khoản để xử lý riêng
 
 function highlightCurrentPage() {

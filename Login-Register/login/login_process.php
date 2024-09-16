@@ -16,7 +16,7 @@
             exit();
         }
     
-        $query = "SELECT password From users WHERE username = '$username'";
+        $query = "SELECT password, role FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $query);
     
         if (mysqli_num_rows($result) == 0){
@@ -28,6 +28,7 @@
     
         if (password_verify($password, $row["password"])){
             $_SESSION['username'] = $username;
+            $_SESSION['role'] = $row["role"];
             echo json_encode(["message" => "Đăng nhập thành công", "status" => "success"]);
             
         } else {
