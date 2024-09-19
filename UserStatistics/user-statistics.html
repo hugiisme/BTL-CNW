@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../UserStatistics/user-statistic.css">
+    <title>Thống kê người dùng</title>
+</head>
+<body>
+    <h1 class="heading">Thống kê người dùng</h1>
+    
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Nhập tên người dùng">
+    </div>
+    
+    <div class="table-controls">
+        <div class="filter-bar">
+            <label for="role-selection-filter">Lọc theo vai trò:</label>
+            <select id="role-selection-filter">
+                <option value="">Tất cả</option>
+                <option value="admin">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+            </select>
+        </div>
+        <div class="sort-bar">
+            <label for="sort-by-name">Sắp xếp theo tên:</label>
+            <select name="sort_by_name" id="sort-by-name">
+                <option value="asc">A-Z &#9650;</option>
+                <option value="desc">A-Z &#9660;</option>
+            </select>
+        </div>
+    </div>
+    
+    <table id="user-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên người dùng</th>
+                <th>Vai trò</th>
+                <th>Xác nhận chỉnh sửa</th>
+            </tr>
+        </thead>
+        <tbody id = "user-table-body">
+        </tbody>
+    </table>
+
+    <div id="pop-up">
+        <div class="pop-up-content">
+            <h1 class="heading">Thông tin người dùng</h1>
+            <div id="close-btn">&times;</div>
+            <form action="edit_control.php" class="edit-user">
+                <div class="section" id = "user-id">Id: </div>
+                <div class="section" id = "user-name">Tên người dùng: </div>
+                <div class="section" id = "user-role">
+                    <label for="role-selection">Vai trò: </label>
+                    <select name="role_selection" id="role-selection">
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                </div>
+                
+                <div class="choices">
+                    <input type="button" value="Xóa tài khoản này" id="delete-btn">
+                    <input type="button" value="Xác nhận" id="submit-btn">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="user-statistic.js"></script>
+</body>
+</html>

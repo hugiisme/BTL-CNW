@@ -2,9 +2,13 @@ fetch("../shared/user_data.php")
     .then (response => response.json())
     .then (data => {
         if (data.role != "admin"){
-            document.getElementById("admin-only").style.display = "none";
+            Array.from(document.getElementsByClassName("admin-only")).forEach(element => {
+                element.style.display = "none";
+            });
         } else {
-            document.getElementById("admin-only").style.display = "block";
+            Array.from(document.getElementsByClassName("admin-only")).forEach(element => {
+                element.style.display = "block";
+            });
         }
     })
 

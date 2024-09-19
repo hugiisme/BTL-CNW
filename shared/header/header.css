@@ -30,8 +30,8 @@ ul {
 .menu > li {
     display: inline-block;
     position: relative;
-    width: 150px;
-    padding: 0px 10px;
+    width: 180px;
+    padding: 0px 5px;
 }
 
 .menu > li > a {
