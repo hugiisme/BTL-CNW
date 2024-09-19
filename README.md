@@ -82,3 +82,23 @@ Yêu cầu:
 Yêu cầu: 
 - Đã đăng nhập
 - Tài khoản có quyền admin
+
+## Trang thống kê người dùng
+Yêu cầu:
+- Đã đăng nhập
+- Tài khoản có quyền admin
+### Chức năng
+- Tìm kiếm người dùng theo tên
+- Hiển thị tất cả người dùng
+- Filter theo role
+- Sort bằng username
+- Thay đổi role cho người dùng
+- Xóa người dùng
+
+## Trang thông tin tài khoản
+Yêu cầu:
+- Đã đăng nhập
+### Chức năng
+- Hiển thị tên người dùng và role
+- Thay đổi mật khẩu
+- Xóa tài khoản
