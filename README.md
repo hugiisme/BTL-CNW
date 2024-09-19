@@ -88,10 +88,11 @@ Yêu cầu:
 - Đã đăng nhập
 - Tài khoản có quyền admin
 ### Chức năng
+> TODO: thêm chức năng phân ngành cho chỉ giáo viên
 - Tìm kiếm người dùng theo tên
 - Hiển thị tất cả người dùng
 - Filter theo role
-- Sort bằng username
+- Sort bằng tên người dùng, thời gian tạo và thời gian chỉnh sửa cuối 
 - Thay đổi role cho người dùng
 - Xóa người dùng
 
@@ -99,6 +100,7 @@ Yêu cầu:
 Yêu cầu:
 - Đã đăng nhập
 ### Chức năng
+> TODO: thêm chức năng yêu cầu đổi role
 - Hiển thị tên người dùng và role
 - Thay đổi mật khẩu
 - Xóa tài khoản

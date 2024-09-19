@@ -24,20 +24,29 @@
             </select>
         </div>
         <div class="sort-bar">
-            <label for="sort-by-name">Sắp xếp theo tên:</label>
-            <select name="sort_by_name" id="sort-by-name">
-                <option value="asc">A-Z &#9650;</option>
-                <option value="desc">A-Z &#9660;</option>
+            <label for="sort-order">Sắp xếp theo</label>
+            <select name="sort-by" id="sort-by">
+                <option value="name">Tên</option>
+                <option value="create_at">Thời gian tạo</option>
+                <option value="update_at">Lần chỉnh sửa cuối</option>
+            </select>
+            <select name="sort_order" id="sort-order">
+                <option value="asc">&#9650;</option>
+                <option value="desc">&#9660;</option>
             </select>
         </div>
     </div>
     
+    <h1 id="tbody-empty">Không tìm thấy người dùng thỏa mãn</h1>
     <table id="user-table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Tên người dùng</th>
                 <th>Vai trò</th>
+                <th>Email</th>
+                <th>Thời gian tạo</th>
+                <th>Lần chỉnh sửa cuối</th>
                 <th>Xác nhận chỉnh sửa</th>
             </tr>
         </thead>
@@ -52,6 +61,7 @@
             <form action="edit_control.php" class="edit-user">
                 <div class="section" id = "user-id">Id: </div>
                 <div class="section" id = "user-name">Tên người dùng: </div>
+                <div class="section" id="user-email">Email: </div>
                 <div class="section" id = "user-role">
                     <label for="role-selection">Vai trò: </label>
                     <select name="role_selection" id="role-selection">
@@ -60,6 +70,9 @@
                         <option value="student">Student</option>
                     </select>
                 </div>
+                <div class="section" id="user-create-at">Thời gian tạo: </div>
+                <div class="section" id="user-update-at">Lần chỉnh sửa cuối: </div>
+                <div class="assign-major"></div>
                 
                 <div class="choices">
                     <input type="button" value="Xóa tài khoản này" id="delete-btn">

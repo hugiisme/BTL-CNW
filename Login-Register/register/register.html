@@ -8,7 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="register-container">
+    <div class="main-wrapper">
         <form action="register_process.php" method="post" class="register-form">
             <h1>Đăng Ký</h1>
 
@@ -16,31 +16,45 @@
                 <input type="text" name="username" id="register-username" placeholder="">
                 <label for="register-username">Tên đăng nhập</label>
                 <i class='bx bx-user icon' ></i>
-                <div class="error-message" id="username-error-message"></div>
+                <div class="error-message" id="username-error"></div>
             </div>
-            
+
+            <div class="input-container">
+                <input type="text" name="resigter_name" id="register-name" placeholder="">
+                <label for="register-name">Tên người dùng</label>
+                <i class='bx bx-user icon' ></i>
+                <div class="error-message" id="name-error"></div>
+            </div>
+
+            <div class="input-container">
+                <input type="text" name="register_email" id="register-email" placeholder="">
+                <label for="register-email">Email</label>
+                <i class='bx bx-envelope icon'></i>
+                <div class="error-message" id="email-error"></div>
+            </div>
+
             <div class="input-container">
                 <input type="password" name="password" id="register-password" placeholder="">
                 <label for="register-password">Mật khẩu</label>
                 <i class='bx bx-lock-alt icon' onclick="togglePassword('register-password')" ></i>
-                <div class="error-message" id="password-error-message"></div>
+                <div class="error-message" id="password-error"></div>
             </div>
 
             <div class="input-container">
                 <input type="password" name="password_confirmation" id="register-password-confirmation" placeholder="">
                 <label for="register-password-confirmation">Xác nhận lại mật khẩu</label>
                 <i class='bx bx-lock-alt icon' onclick="togglePassword('register-password-confirmation')"></i>
-                <div class="error-message" id="password-confirmation-error-message"></div>
+                <div class="error-message" id="password-confirmation-error"></div>
             </div>
 
             <input type="submit" name="register" class="submit-btn" value="Đăng ký">
             
-            <div class="login-suggestion">
+            <div class="suggestion">
                 Đã có tài khoản? <a href="../login/login.php">Đăng nhập.</a>
             </div>
         </form>
     </div>
-    <script src="../shared/form-validation.js" defer></script>
+    <script src="register-validation.js" defer></script>
     <script src="../../shared/toggle-password.js"></script>
 </body>
 </html>

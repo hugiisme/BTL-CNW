@@ -9,89 +9,120 @@
 </head>
 <body>
     <div class="account-wrapper">
-        <div class="account-container main-wrapper">
-            <div class="information-container">
-                <h1 class="account-title">Thông tin cá nhân</h1>
-                <div class="information-section section">
-                    <div id="user-name">Username: </div>
-                    <div id="user-role">Role: </div>
-                </div>
+        <div class="account-detail">
+            <div class="account-info container">
+                <h1>Thông tin người dùng</h1>
+                <div class="user-name detail">Tên người dùng: </div>
+                <div class="user-email detail">Email: </div>
+                <div class="user-role detail">Vai trò: </div>
             </div>
-            
-            <div class="settings-container">
-                <h1 class="account-title">Cài đặt</h1>
-                <div class="settings-section section">
-                    <div class="option">
-                        <div class="description">Thay đổi mật khẩu của bạn</div>
-                        <a href="" id="password-change-link">Đổi mật khẩu</a>
-                    </div>
-                    <div class="option">
-                        <div class="description">Xóa tài khoản này</div>
-                        <a href="" id="delete-account-link">Xóa tài khoản</a>
-                    </div>
+            <div class="account-setting container">
+                <h1>Cài đặt</h1>
+                <div class="setting-option">
+                    <div class="description">Thay đổi tên người dùng</div>
+                    <a href="" id="change-user-name-link">Đổi tên người dùng</a>
+                </div>
+                <div class="setting-option">
+                    <div class="description">Thay đổi email của bạn</div>
+                    <a href="" id="change-email-link">Đổi email</a>
+                </div>
+                <div class="setting-option">
+                    <div class="description">Thay đổi mật khẩu của bạn</div>
+                    <a href="" id="change-password-link">Đổi mật khẩu</a>
+                </div>
+                <div class="setting-option">
+                    <div class="description">Xóa tài khoản này</div>
+                    <a href="" id="delete-account-link">Xóa tài khoản</a>
                 </div>
             </div>
         </div>
-
-        <div class="settings-popup">
-            <div class="change-password-container main-wrapper">
-                <h4>Đổi mật khẩu</h4>
+        <div class="popup">
+            <div class="change-name section">
+                <h1>Đổi tên người dùng</h1>
+                <form action="change_name_process.php" method="POST" id="change-name-form">
+                    <div class="input-container">
+                        <div class="input-field">
+                            <label for="new-name">Tên người dùng mới</label>
+                            <input type="text" name="new_name" id="new-name">
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="choices">
+                        <input type="button" class="cancel-btn" value="Hủy">
+                        <input type="submit" class="submit-btn" value="Xác nhận">
+                    </div>
+                </form>
+            </div>
+            <div class="change-email section">
+                <h1>Đổi email</h1>
+                <form action="change_email_process.php" method="POST" id="change-email-form">
+                    <div class="input-container">
+                        <div class="input-field">
+                            <label for="">Email mới</label>
+                            <input type="text" name="new_email" id="new-email">
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="choices">
+                        <input type="button" class="cancel-btn" value="Hủy">
+                        <input type="submit" class="submit-btn" value="Xác nhận">
+                    </div>
+                </form>
+            </div>
+            <div class="change-password section">
                 <form action="change_password_process.php" method="POST" id="change-password-form">
-                    <div class="container">
-                        <div class="error" id = "old-password-error"></div>
-                        <div class="input-container">
+                    <h1>Đổi mật khẩu</h1>
+                    <div class="input-container">
+                        <div class="input-field">
                             <label for="old-password">Mật khẩu cũ</label>
-                            <input type="password" id="old-password" name="old_password">
+                            <input type="password" name="old_password" id="old-password">
                             <i class='bx bx-lock-alt icon' onclick="togglePassword('old-password')"></i>
                         </div>
+                        <div class="error-message" id="old-password-error"></div>
                     </div>
-
-                    <div class="container">
-                        <div class="error" id = "new-password-error"></div>
-                        <div class="input-container">
+                    <div class="input-container">
+                        <div class="input-field">
                             <label for="new-password">Mật khẩu mới</label>
-                            <input type="password" id="new-password" name="new_password">
+                            <input type="password" name="new_password" id="new-password">
                             <i class='bx bx-lock-alt icon' onclick="togglePassword('new-password')"></i>
                         </div>
+                        <div class="error-message" id="new-password-error"></div>
                     </div>
-
-                    <div class="container">
-                        <div class="error" id = "new-password-confirmation-error"></div>
-                        <div class="input-container">
+                    <div class="input-container">
+                        <div class="input-field">
                             <label for="new-password-confirmation">Xác nhận mật khẩu mới</label>
-                            <input type="password" id="new-password-confirmation" name="new_password_confirmation">
+                            <input type="password" name="new_password_confirmation" id="new-password-confirmation">
                             <i class='bx bx-lock-alt icon' onclick="togglePassword('new-password-confirmation')"></i>
-                        </div>
+                        </div> 
+                        <div class="error-message" id="new-password-confirmation-error"></div>
                     </div>
-
                     <div class="choices">
-                        <input type="button" class="cancel-button" value="Hủy">
-                        <input type="submit" class="confirm-button" value="Xác nhận">
+                        <input type="button" class="cancel-btn" value="Hủy">
+                        <input type="submit" class="submit-btn" value="Xác nhận">
                     </div>
-                </form>                  
+                </form>
             </div>
-    
-            <div class="delete-account-container main-wrapper">
-                <h4>Xóa tài khoản</h4>
+            <div class="delete-account section">
+                <h1>Xóa tài khoản</h1>
                 <form action="delete_account_process.php" method="POST" id="delete-account-form">
-                    <div class="container">
-                        <div class="error" id = "username-delete-error"></div>
-                        <div class="input-container">
-                            <label for="username-delete">Tên đăng nhập</label>
-                            <input type="text" id="username-delete" name="username_delete">
+                    <div class="input-container">
+                        <div class="input-field">
+                            <label for="username">Tên đăng nhập</label>
+                            <input type="text" name="username" id="username">
                         </div>
+                        <div class="error-message" id="username-error"></div>
                     </div>
-                    <div class="container">
-                        <div class="error" id = "password-delete-error"></div>
-                        <div class="input-container">
-                            <label for="password-delete">Mật khẩu</label>
-                            <input type="password" id="password-delete" name="password_delete">
-                            <i class='bx bx-lock-alt icon' onclick="togglePassword('password-delete')"></i>
+                    <div class="input-container">
+                        <div class="input-field">
+                            <label for="password">Mật khẩu</label>
+                            <input type="password" name="password" id="password">
+                            <i class='bx bx-lock-alt icon' onclick="togglePassword('password')"></i>
                         </div>
+                        <div class="error-message" id="password-error"></div>
                     </div>
                     <div class="choices">
-                        <input type="button" class="cancel-button" value="Hủy">
-                        <input type="submit" class="confirm-button" value="Xác nhận">
+                        <input type="button" class="cancel-btn" value="Hủy">
+                        <input type="submit" class="submit-btn" value="Xác nhận">
                     </div>
                 </form>
             </div>

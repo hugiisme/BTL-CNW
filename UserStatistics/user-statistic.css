@@ -128,5 +128,10 @@ select {
 .table-controls {
     display: flex;
     justify-content: space-between;
+}
 
+#tbody-empty {
+    display: none;
+    color: red;
+    text-align: center;
 }

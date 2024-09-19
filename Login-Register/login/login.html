@@ -8,7 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="login-container">
+    <div class="main-wrapper">
         <form action="login_process.php" method="post" class="login-form">
             <h1>Đăng nhập</h1>
 
@@ -16,7 +16,7 @@
                 <input type="text" name="username" id="login-username" placeholder="">
                 <label for="login-username">Tên đăng nhập</label>
                 <i class='bx bx-user icon'></i>
-                <div class="error-message" id = "username-error-message"></div>
+                <div class="error-message" id = "username-error"></div>
             </div>
             
             
@@ -24,7 +24,7 @@
                 <input type="password" name="password" id="login-password" placeholder="">
                 <label for="login-password">Mật khẩu</label>
                 <i class='bx bx-lock-alt icon' onclick="togglePassword('login-password')"></i>
-                <div class="error-message" id = "password-error-message"></div>
+                <div class="error-message" id = "password-error"></div>
             </div>
 
             <!-- <div class="suggestion-box">
@@ -34,12 +34,12 @@
 
             <input type="submit" name="Login" class="submit-btn" value="Đăng nhập">
             
-            <div class="register-suggestion">
+            <div class="suggestion">
                 Chưa có tài khoản? <a href="../register/register.php">Đăng ký.</a>
             </div>
         </form>
     </div>
-    <script src="../shared/form-validation.js" defer></script>
+    <script src="login-validation.js" defer></script>
     <script src="../../shared/toggle-password.js"></script>
 </body>
 </html>

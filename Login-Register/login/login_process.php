@@ -11,14 +11,19 @@
         $username = trim($_POST["username"]);
         $password = trim($_POST["password"]);
     
-        if (empty($username) && empty($password)){
-            echo json_encode(["message" => "Chưa nhập mật khẩu hoặc tên đăng nhập", "status" => "error"]); // thừa, js đã xử lý rồi
+        // validate
+        // thừa, js đã xử lý rồi nhưng để cho chắc
+        if($username === null){
+            echo json_encode(["message" => "Chưa nhập tên đăng nhập", "status" => "error"]); 
+            exit();
+        } else if ($password === null){
+            echo json_encode(["message" => "Chưa nhập tên mật khẩu", "status" => "error"]); 
             exit();
         }
+
     
-        $query = "SELECT password, role FROM users WHERE username = '$username'";
+        $query = "SELECT password, role, name FROM users WHERE username = '$username'";
         $result = mysqli_query($conn, $query);
-    
         if (mysqli_num_rows($result) == 0){
             echo json_encode(["message" => "Sai tên đăng nhập", "status" => "error"]);
             exit();
@@ -29,8 +34,8 @@
         if (password_verify($password, $row["password"])){
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $row["role"];
+            $_SESSION['name'] = $row["name"];
             echo json_encode(["message" => "Đăng nhập thành công", "status" => "success"]);
-            
         } else {
             echo json_encode(["message" => "Sai mật khẩu", "status" => "error"]);
         }
@@ -42,40 +47,3 @@
     
 ?>
 
-<?php
-    // header('Content-Type: application/json');
-    // include("../../shared/database.php");
-    // session_start();
-
-    // if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    //     $username = trim($_POST["username"]);
-    //     $password = trim($_POST["password"]);
-
-    //     if (!empty($username) && !empty($password)){
-    //         $query = "SELECT password From users WHERE username = '$username'";
-    //         $result = mysqli_query($conn, $query);
-
-    //         if (mysqli_num_rows($result) > 0){
-    //             $row = mysqli_fetch_assoc($result);
-
-    //             if (password_verify($password, $row["password"])){
-    //                 $_SESSION['username'] = $username;
-    //                 echo json_encode(["message" => "Đăng nhập thành công", "status" => "success"]);
-    //                 exit();
-                    
-    //             } else {
-    //                 echo json_encode(["message" => "Sai mật khẩu", "status" => "error"]);
-    //             }
-
-    //         } else {
-    //             echo json_encode(["message" => "Sai tên đăng nhập", "status" => "error"]);
-    //         }
-
-    //     } else {
-    //         echo json_encode(["message" => "Chưa nhập mật khẩu hoặc tên đăng nhập", "status" => "error"]); // thừa, js đã xử lý rồi
-    //     }
-    // } 
-
-    // mysqli_close($conn);
-
-?>
