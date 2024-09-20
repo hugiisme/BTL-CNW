@@ -32,7 +32,10 @@ function highlightCurrentPage() {
 
     // vì thông tin tài khoản là trong account.php nằm trong submenu chứ không nằm trong navList nên xử lý riêng
     if (currentPath.includes('account.php')) {
-        document.querySelector('.menu > li > a[href="#"]').classList.add("active");
+        document.getElementById("account").classList.add("active");
+    }
+    if (currentPath.includes("application_statistics.php") || currentPath.includes("user_statistics.php")){
+        document.getElementById("admin").classList.add("active");
     }
 }
 

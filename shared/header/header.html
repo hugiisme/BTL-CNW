@@ -16,10 +16,15 @@
                 <li><a href="../Home/index.php">Trang chủ</a></li>
                 <li><a href="../ApplicationSubmission/application_submission.php">Nộp hồ sơ</a></li>
                 <li><a href="../ApplicationView/application_view.php">Xem hồ sơ</a></li>
-                <li class = "admin-only"><a href="../ApplicationStatistics/application_statistics.php">Thống kê hồ sơ</a></li>
-                <li class = "admin-only"><a href="../UserStatistics/user_statistics.php">Thống kê người dùng</a></li>
                 <li>
-                    <a href="#">Tài khoản</a>
+                    <a href="#" id="admin">Các chức năng admin</a>
+                    <ul class="submenu admin-only">
+                        <li class><a href="../ApplicationStatistics/application_statistics.php">Thống kê hồ sơ</a></li>
+                        <li class><a href="../UserStatistics/user_statistics.php">Thống kê người dùng</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" id="account">Tài khoản</a>
                     <ul class="submenu">
                         <li><a href="../Account/account.php">Thông tin tài khoản</a></li>
                         <li><a href="#" id = "logout">Đăng xuất</a></li>
