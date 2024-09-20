@@ -49,6 +49,7 @@ th {
 th:not(:last-child):hover {
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 
 .choosen {
