@@ -30,13 +30,16 @@ function highlightCurrentPage() {
         } 
     });
 
-    // vì thông tin tài khoản là trong account.php nằm trong submenu chứ không nằm trong navList nên xử lý riêng
-    if (currentPath.includes('account.php')) {
-        document.getElementById("account").classList.add("active");
-    }
-    if (currentPath.includes("application_statistics.php") || currentPath.includes("user_statistics.php")){
-        document.getElementById("admin").classList.add("active");
-    }
+    // Xử lý submenu riêng vì không nằm trong navList
+    var submenuLinks = document.querySelectorAll('.submenu a');
+
+    submenuLinks.forEach(subLink => {
+        if (currentPath.includes(subLink.getAttribute('href').replace('../', ''))) { // nếu trang hiện tại nằm trong submenu
+            var parentId = subLink.closest('li').parentElement.previousElementSibling.id; // lấy thẻ li gốc
+            document.getElementById(parentId).classList.add('active'); 
+        }
+    });
+
 }
 
 highlightCurrentPage();

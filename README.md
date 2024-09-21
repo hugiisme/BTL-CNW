@@ -89,10 +89,10 @@ Yêu cầu:
 - Tài khoản có quyền admin
 ### Chức năng
 > TODO: thêm chức năng phân ngành cho chỉ giáo viên
-- Tìm kiếm người dùng theo tên
+- Tìm kiếm người dùng theo tên, email, trang
 - Hiển thị tất cả người dùng
 - Filter theo role
-- Sort bằng tên người dùng, thời gian tạo và thời gian chỉnh sửa cuối 
+- Sort bằng tên người dùng, role, email, thời gian tạo và thời gian chỉnh sửa cuối 
 - Thay đổi role cho người dùng
 - Xóa người dùng
 

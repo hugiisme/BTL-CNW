@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2024 at 11:17 AM
+-- Generation Time: Sep 21, 2024 at 10:11 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -98,7 +98,7 @@ CREATE TABLE `teacher_assign` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('admin','teacher','student') NOT NULL,
@@ -107,6 +107,14 @@ CREATE TABLE `users` (
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `password`, `role`, `name`, `email`, `create_at`, `update_at`) VALUES
+(1, 'nguyengiahung', '$2y$10$V9FomOX/WQIJZdjtSMXplezpMiXk/B71ejrLZnRSPSU7w1hh/Shxm', 'admin', 'Nguyễn Gia Hưng', 'nguyengiahung1403@gmail.com', '2024-09-21 07:55:19', '2024-09-21 07:56:39'),
+(2, 'lehokhanhhuyen', '$2y$10$KRYTqbrLnEPDvb/cJwP.muLcCiB.mIckubCEv.my.FXH0OLSvP.Nm', 'admin', 'Lê Hồ Khánh Huyền', 'khanhhuyenlee2412@gmail.com', '2024-09-21 07:56:15', '2024-09-21 07:56:46');
 
 --
 -- Indexes for dumped tables
@@ -151,7 +159,7 @@ ALTER TABLE `teacher_assign`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`user_id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
@@ -180,7 +188,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -197,16 +205,16 @@ ALTER TABLE `major_block`
 -- Constraints for table `profile`
 --
 ALTER TABLE `profile`
-  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `profile_ibfk_2` FOREIGN KEY (`block_id`) REFERENCES `block` (`block_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `profile_ibfk_3` FOREIGN KEY (`major_id`) REFERENCES `major` (`major_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `profile_ibfk_4` FOREIGN KEY (`verifier_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `profile_ibfk_4` FOREIGN KEY (`verifier_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `teacher_assign`
 --
 ALTER TABLE `teacher_assign`
-  ADD CONSTRAINT `teacher_assign_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `teacher_assign_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `teacher_assign_ibfk_2` FOREIGN KEY (`major_id`) REFERENCES `major` (`major_id`);
 COMMIT;
 
