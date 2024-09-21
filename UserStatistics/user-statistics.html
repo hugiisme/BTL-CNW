@@ -34,19 +34,28 @@
         
         <table id="user-table">
             <thead>
+                <h4 id="total-result">Tổng số kết quả: </h4>
                 <tr>
-                    <th id="id-column" data-column="user_id">ID <span class="sort-arrow"></span></th>
-                    <th id="name-column" data-column="name" class="choosen">Name <span class="sort-arrow">↑</span></th>
-                    <th id="role-column" data-column="role">Role <span class="sort-arrow"></span></th>
-                    <th id="email-column" data-column="email">Email <span class="sort-arrow"></span></th>
-                    <th id="create-at-column" data-column="create_at">Created At <span class="sort-arrow"></span></th>
-                    <th id="update-at-column" data-column="update_at">Update At <span class="sort-arrow"></span></th>
+                    <th data-column="user_id" class="choosen">ID <span class="sort-arrow">↑</span></th>
+                    <th data-column="name">Name <span class="sort-arrow"></span></th>
+                    <th data-column="role">Role <span class="sort-arrow"></span></th>
+                    <th data-column="email">Email <span class="sort-arrow"></span></th>
+                    <th data-column="create_at">Created At <span class="sort-arrow"></span></th>
+                    <th data-column="update_at">Update At <span class="sort-arrow"></span></th>
                     <th id="action-column">Action</th>
                 </tr>
             </thead>
             <tbody id = "user-table-body">
             </tbody>
         </table>
+        <div class="table-footer">
+            <button id="prev-btn" disabled>Previous</button>
+            <div class="page-container">
+                <label for="page">Trang:</label>
+                <input type="text" name="page" id="page">
+            </div>
+            <button id="next-btn">Next</button>
+        </div>
     </div>
     
     <div id="pop-up">

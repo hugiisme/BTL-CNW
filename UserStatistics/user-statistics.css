@@ -143,3 +143,23 @@ th:not(:last-child):hover {
     margin-left: 5px;
     font-size: 12px;
 }
+
+.table-footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px;
+    gap: 10px;
+}
+
+
+.table-footer button {
+    width: 60px;
+    height: 20px;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

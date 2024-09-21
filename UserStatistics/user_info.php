@@ -17,29 +17,41 @@
             $sql .= " AND $search_by LIKE '%$search%'";
         } 
         
-        error_log($_GET["filter_by"]);
         $filterBy = isset($_GET["filter_by"]) ? $_GET["filter_by"] : '';
         if($filterBy){
             $sql .= " AND role = '$filterBy'";
         }
-    
-        // $sortOrder = isset($_GET["sort_order"]) ? $_GET["sort_order"] : "asc";
-        // $sortBy = isset($_GET["sort_by"]) ? $_GET["sort_by"] : "name";
-        // if ($sortOrder === 'asc') {
-        //     $sql .= " ORDER BY $sortBy ASC";
-        // } else if ($sortOrder === 'desc') {
-        //     $sql .= " ORDER BY $sortBy DESC";
-        // }
+        
+        $sortOrder = $_GET["sort_order"];
+        $sortBy = $_GET["sort_by"];
 
-        error_log($sql);
+        if ($sortOrder === 'asc') {
+            $sql .= " ORDER BY $sortBy ASC";
+        } else if ($sortOrder === 'desc') {
+            $sql .= " ORDER BY $sortBy DESC";
+        }
 
+        $result = mysqli_query($conn, $sql);
+        $totalResult = mysqli_num_rows($result);
+
+        if (isset($_GET["page"]) && isset($_GET["limit"])){
+            $limit = $_GET["limit"];
+            $page = $_GET["page"] - 1;
+            $offset = $page*$limit;
+            $sql .= " LIMIT $limit OFFSET $offset";
+        }
+
+        error_log($sql); 
         $result = mysqli_query($conn, $sql);
         
         while ($row = mysqli_fetch_assoc($result)) {
             $users[] = $row;
         }
     
-        echo json_encode($users);
+        echo json_encode([
+            "users" => $users,
+            "total" => $totalResult
+        ]);
         
     } catch (Exception $e){
         error_log($e->getMessage());
