@@ -1,16 +1,20 @@
-fetch("../shared/user_data.php")
-    .then (response => response.json())
-    .then (data => {
-        if (data.role != "admin"){
-            Array.from(document.getElementsByClassName("admin-only")).forEach(element => {
-                element.style.display = "none";
-            });
-        } else {
-            Array.from(document.getElementsByClassName("admin-only")).forEach(element => {
-                element.style.display = "block";
-            });
-        }
-    })
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("../shared/user_data.php")
+        .then (response => response.json())
+        .then (data => {
+            if (data.role == "admin"){
+                var adminElement = document.getElementsByClassName("admin-only");
+                Array.from(adminElement).forEach(element => {
+                    element.classList.remove("is-hidden");
+                });
+            } else {
+                Array.from(adminElement).forEach(element => {
+                    element.classList.remove("is-hidden");
+                });
+            }
+        })
+})
+
 
 var navLinks = document.querySelectorAll('.menu > li > a:not([href="#"])'); // chỉ xét thẻ a mà có link, né nút tài khoản để xử lý riêng
 

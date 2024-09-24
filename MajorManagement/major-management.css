@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.heading {
+    text-align: center;
+    margin: 20px;
+}
+
+.major-control {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+#table-empty-message{
+    text-align: center;
+    color: red;
+    display: none;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+    table-layout: auto;
+}
+
+#create-major-pop-up {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #8080806e;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+#create-major-form {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    background-color: white;
+}
+
+#close-create-btn,
+#close-edit-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: tomato;
+    color: white;
+    border-top-right-radius: 10px;
+    padding: 5px 10px;
+}
+
+#close-btn:hover {
+    background-color: red;
+}
+
+.input-container {
+    margin: 30px 0px;
+}
+
+.input-container label {
+    margin-right: 10px;
+}
+
+textarea {
+    resize: none;
+}
+
+#major-name {
+    width: 200px;
+    height: 25px;
+    font-size: large;
+}
+
+.error {
+    color: red;
+}
+
+#submit-create-btn {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: large;
+}
+
+#submit-create-btn:hover {
+    background-color: white;
+    color: black;
+}

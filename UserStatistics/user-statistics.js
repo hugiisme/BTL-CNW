@@ -35,18 +35,18 @@ function initializeEventListeners(){
     document.getElementById("page").addEventListener("change", () => {
         let inputPage = parseInt(document.getElementById("page").value) - 1;  // Subtract 1 to convert to zero-indexed page number
 
-        if (isNaN(inputPage)) {
+        if (isNaN(inputPage)) { // check nếu inputPage không phải 1 số
             alert("Số trang không hợp lệ");
-            document.getElementById("page").value = page + 1;  // Reset to the current page
+            document.getElementById("page").value = page + 1;  // Reset thành trang hiện tại
             return;
         }
 
-        if (inputPage >= 0 && inputPage * limit < totalResult) {
+        if (inputPage >= 0 && inputPage * limit < totalResult) { // check nếu input vượt quá số trang tồn tại
             page = inputPage;
             loadUsers();
         } else {
             alert("Số trang vượt quá phạm vi");
-            document.getElementById("page").value = page + 1;  // Reset to the current page
+            document.getElementById("page").value = page + 1;  // Reset thành trang hiện tại
         }
         loadUsers();
         updatePageButton();
@@ -125,10 +125,9 @@ function loadUsers() {
                 return;
             }
             totalResult = data.total;
-            // nếu không sử dụng cache thì mỗi lần thay sort bảng sẽ bị flick nhấp nháy vì phải fetch và đẩy lại dữ liệu trong khi sort không làm thay đổi các phần tử mà chỉ thay đổi thứ tự phần tử
             document.getElementById("total-result").textContent = "Tổng số kết quả: " + totalResult;    
             
-            displayUsers(data.users); // vì dùng cache nên phải tạo hàm riêng để tránh reload bảng
+            displayUsers(data.users); 
             updatePageButton(); 
         });
     

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="major-management.css">
+    <title>Quản lý ngành</title>
+</head>
+<body>
+    <h1 class="heading">Quản lý ngành</h1>
+
+    <div class="table-wrapper">
+        <div class="major-control">
+            <div class="search-by-container">
+                <input type="text" name="search" id="search-content" placeholder="Nhập tên ngành: ">
+            </div>
+            <button id="create-major-btn">Tạo ngành mới</button>
+        </div>
+    
+        <h1 id="table-empty-message">Không tìm thấy kết quả nào</h1>
+    
+        <table id="major-table">
+            <thead>
+                <h4 id="total-result">Tổng số kết quả: </h4>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+    
+    <div id="edit-major-pop-up">
+        <div id="close-edit-btn">&times;</div>
+    </div>
+
+    <div id="create-major-pop-up">
+        <form action="create_major_process.php" method="POST" id="create-major-form">
+            <div id="close-create-btn">&times;</div>
+            <h2>Thông tin ngành</h3>
+            <div class="input-container">
+                <label for="major-name">Tên ngành: </label>
+                <input type="text" name="major_name" id="major-name">
+                <div id="major-name-error" class="error"></div>
+            </div>
+            
+            <div class="input-container">
+                <label for="description">Mô tả: </label><br>
+                <textarea name="" name="description" id="description" rows="10" cols="50"></textarea>
+                <div id="description-error" class="error"></div>
+            </div>
+            
+            <div class="input-container">
+                <label for="start-date">Ngày bắt đầu nộp hồ sơ: </label>
+                <input type="date" name="start_date" id="start-date">
+                <div id="start-date-error" class="error"></div>
+            </div>
+            
+            <div class="input-container">
+                <label for="end-date">Ngày hết hạn nộp hồ sơ: </label>
+                <input type="date" name="end_date" id="end-date">
+                <div id="end-date-error" class="error"></div>
+            </div>
+
+            <input type="submit" name="submit_create_btn" id="submit-create-btn" value="Tạo">
+        </form>
+    </div>
+    <script src="major-management.js"></script>
+</body>
+</html>

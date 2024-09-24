@@ -6,6 +6,46 @@
     <title>Phân công giáo viên</title>
 </head>
 <body>
-    <h1>Phân công giáo viên</h1>
+    <h1 class="heading">Phân công giáo viên</h1>
+
+    <div class="table-wrapper">
+        <div class="table-control">
+            <div class="search-container">
+                <label for="search-by">Search By: </label>
+                <select name="search_by" id="search-by" class="option">
+                    <option value="name">Name</option>
+                    <option value="email">Email</option>
+                </select>
+                <input type="text" id="search-content" class="option" placeholder="">
+            </div>
+        </div>
+
+        <h1 id="table-empty-message">Không tìm thấy người dùng thỏa mãn</h1>
+        
+        <table id="user-table">
+            <thead>
+                <h4 id="total-result">Tổng số kết quả: </h4>
+                <tr>
+                    <th data-column="user_id" class="choosen">ID <span class="sort-arrow">↑</span></th>
+                    <th data-column="name">Name <span class="sort-arrow">↑</span></th>
+                    <th data-column="email">Email <span class="sort-arrow">↑</span></th>
+                    <th data-column="create_at">Created At <span class="sort-arrow">↑</span></th>
+                    <th data-column="update_at">Update At <span class="sort-arrow">↑</span></th>
+                    <th id="action-column">Action</th>
+                </tr>
+            </thead>
+            <tbody id = "user-table-body">
+            </tbody>
+        </table>
+
+        <div class="table-footer"></div>
+            <button id="prev-btn" disabled>Previous</button>
+            <div class="page-container">
+                <label for="page">Trang:</label>
+                <input type="text" name="page" id="page">
+            </div>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
 </body>
 </html>
