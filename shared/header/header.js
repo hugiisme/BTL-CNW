@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             } else {
                 Array.from(adminElement).forEach(element => {
-                    element.classList.remove("is-hidden");
+                    element.classList.add("is-hidden");
                 });
             }
         })
