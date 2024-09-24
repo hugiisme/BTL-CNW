@@ -4,6 +4,6 @@
     if ($_SESSION['role'] == "admin"){
         include("application-statistics.html");
     } else {
-        header("Location: ../Home/index.php");
+        header("Location: ../index.php");
     }
 ?>

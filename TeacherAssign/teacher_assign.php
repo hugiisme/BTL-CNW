@@ -4,6 +4,6 @@
     if ($_SESSION['role'] == "admin"){
         include("teacher-assign.html");
     } else {
-        header("Location: ../Home/index.php");
+        header("Location: ../index.php");
     }
 ?>

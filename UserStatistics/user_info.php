@@ -5,7 +5,7 @@
     try {
         header('Content-Type: application/json');
         if ($_SESSION["role"] !== "admin") {
-            echo json_encode(["redirect" => "../Home/index.php"]);
+            echo json_encode(["redirect" => "../index.php"]);
             exit();
         }
         

@@ -37,7 +37,7 @@ function validateLoginForm(e){
         .then(data => {
             alert(data.message);
             if(data.status == "success"){
-                window.location.href = "../../Home/index.php"; // Chuyển hướng sau khi đăng nhập thành công
+                window.location.href = "../../index.php"; // Chuyển hướng sau khi đăng nhập thành công
                 // không thể sử dụng header để chuyển hướng trực tiếp trong php vì đang giữ header('Content-Type: application/json');
                 // sử dụng header("Location: ...") sẽ gửi 1 trang html vào json để alert => lỗi
             }
