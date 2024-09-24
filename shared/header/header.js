@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("../shared/user_data.php")
         .then (response => response.json())
         .then (data => {
+            var adminElement = document.getElementsByClassName("admin-only");
             if (data.role == "admin"){
-                var adminElement = document.getElementsByClassName("admin-only");
                 Array.from(adminElement).forEach(element => {
                     element.classList.remove("is-hidden");
                 });
